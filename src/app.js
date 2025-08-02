@@ -37,7 +37,6 @@ app.use(limiter);
 
 app.get('/',(req,res)=>res.send("Secure API V1"));
 
-//app.use('/api', adminRoutes); // todas las rutas empiezan con /api
 app.use('/api', authRoutes); // todas las rutas empiezan con /api
 app.use('/api/task', taskRoutes); // todas las rutas empiezan con /api/task
 app.use('/api/admin', adminRoutes); // todas las rutas empiezan con /api/admin

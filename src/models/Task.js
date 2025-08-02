@@ -1,22 +1,25 @@
-const { default: mongoose } = require('mongoose');
-const moongose = require('mongoose')
+const mongoose = require('mongoose');
 
 
-const TaskSchema=new moongose.Schema({
+const TaskSchema=new mongoose.Schema({
     title:{ type:String,require:true},
     description:{type:String,require:true},
     created_at:{type:Date , default:Date.now},
     updated_at:{type:Date},
     user_create:{type:mongoose.Schema.Types.ObjectId,ref:'User'},
-    tag:{
-        name:{type:String,require:true},
-        color:{type:String,require:true}
+    //Agregamos Tag para poder despues agrupar tareas en base a un Etiqueta
+    tag:{                       
+        name:{type:String},
+        color:{type:String}
     },
     status:{
         type:String,
         enum:['pending','paused','processing','completed']
-    }
+    },
+    //Usado para poder realizar un soft-deleted y recovery de tareas
+    deleted:{type:Boolean,default:false}, 
+    deteled_at: {type:Date}
 })
 
-const Task = moongose.model('Task',TaskSchema);
+const Task = mongoose.model('Task',TaskSchema);
 module.exports = Task;
