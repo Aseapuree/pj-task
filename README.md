@@ -1,6 +1,7 @@
 # Proyecto 2: API Segura 
 
 ## Finalidad:
+ - Brindar un API con funcionalidad de Task - Manager
  - Brindar un API segura cumpliendo OWASP
  - Guardar logs de accesos y consumos de clientes para auditoria
 
